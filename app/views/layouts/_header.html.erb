@@ -1,0 +1,59 @@
+<nav class="navbar navbar-static-top navbar-default" role="navigation">
+<div class="container">
+
+
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "Ayadu", root_path, class: "navbar-brand"%>
+  </div>
+
+
+
+<form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+
+            <%= form_tag pins_path, :method => :get do %>
+              
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search", type:"text" %>
+              </div>
+              <%= submit_tag "Search", :name => nil, class: "btn btn-default", type: "submit" %>
+              <% end %>
+            
+          
+          </form>
+
+
+
+
+  
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <% if user_signed_in? %>
+        
+        <li>
+            <%= link_to new_pin_path do %>
+              <span class="glyphicon glyphicon-plus"></span> New Pin
+            <% end %>
+          </li>
+
+
+          <li><%= link_to "Account Settings", edit_user_registration_path%></li> 
+
+
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div> <!-- container ends -->
+</nav>

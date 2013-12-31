@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @order.pin_id %>
+</p>
+
+<p>
+  <strong>Customer email:</strong>
+  <%= @order.customer_email %>
+</p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @order.customer_name %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @order.message %>
+</p>
+
+<p>
+  <strong>Customer mobile:</strong>
+  <%= @order.customer_mobile %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

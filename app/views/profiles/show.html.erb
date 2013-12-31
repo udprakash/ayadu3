@@ -1,0 +1,29 @@
+<h1><%= @user.name + "'s stuff available for rent" %></h1>
+<h4>Location: <%=@user.city%></h4>
+
+<% if @pins %>
+<div id="pins" class="transitions-enabled">
+
+
+		<% @pins.each do |pin| %>
+    	
+    	<div class="box panel panel-default">
+      	<%= link_to image_tag(pin.image.url(:medium)), pin %>
+      	
+      	<div class="panel-body">
+        
+        <h4><%= pin.title %></h4>
+        
+        <%= truncate  pin.description, length: 20 %><br/>
+        Daily Rs:<%= pin.daily %><br/>
+        Weekly Rs:<%= pin.weekly %><br/>
+        Monthly Rs:<%= pin.monthly %><br/>
+    	</div>
+		</div>
+		<%end%>
+	</div>
+
+
+
+
+<%end%>
